@@ -35,4 +35,8 @@ class Event
         end
       end.uniq
     end
+
+    def attendes_by_craft_interest
+      #need a hash of keys = craft and values that are arrays of names_array
+    end
   end
