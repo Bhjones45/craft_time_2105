@@ -50,5 +50,9 @@ class Event
 
     def crafts_that_use(tool)
       #find all crafts that use tool.  need to convert string to symbol
+      tool_sym = tool.to_sym
+      @crafts.find_all do |craft|
+        craft.supplies_required.keys.include?(tool_sym)
+      end
     end
   end
