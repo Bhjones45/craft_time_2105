@@ -38,5 +38,10 @@ class Event
 
     def attendes_by_craft_interest
       #need a hash of keys = craft and values that are arrays of names_array
+      interests = Hash.new { |hash, key| hash[key] = Array.new}
+      @crafts.each do |craft|
+        interests[craft.name]
+        require "pry"; binding.pry
+    end
     end
   end
