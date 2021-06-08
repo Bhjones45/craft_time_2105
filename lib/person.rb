@@ -14,4 +14,14 @@ class Person
   def add_supply(supply, amount)
     @supplies[supply] += amount
   end
+
+  def can_build?
+    #if hector has {fabric: 5, scissors: 1, thread: 1, sewing_needles: 1}
+    #return true
+  # else
+    #return false
+    craft.supplies_required.each do |key, value|
+      @supplies.each do |inside_key, inside_value|
+      require "pry"; binding.pry
+  end
 end
