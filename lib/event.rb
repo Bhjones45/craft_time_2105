@@ -47,4 +47,12 @@ class Event
       end
       c_interests
     end
+
+    def crafts_that_use(tool)
+      need_tool = []
+      @crafts.each do |craft|
+        need_tool << craft.supplies_required.include?
+      end
+      need_tool
+    end
   end
