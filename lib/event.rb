@@ -38,10 +38,13 @@ class Event
 
     def attendes_by_craft_interest
       #need a hash of keys = craft and values that are arrays of names_array
-      interests = Hash.new { |hash, key| hash[key] = Array.new}
+      c_interests = Hash.new { |hash, key| hash[key] = Array.new}
       @crafts.each do |craft|
-        interests[craft.name]
-        require "pry"; binding.pry
-    end
+        c_interests[craft.name]
+        @attendees.each do|person|
+          c_interests[craft.name] << person if person.interests.include?(craft.name)
+        end
+      end
+      c_interests
     end
   end
