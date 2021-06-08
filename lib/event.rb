@@ -49,10 +49,6 @@ class Event
     end
 
     def crafts_that_use(tool)
-      need_tool = []
-      @crafts.each do |craft|
-        need_tool << craft.supplies_required.include?
-      end
-      need_tool
+      #find all crafts that use tool.  need to convert string to symbol
     end
   end
