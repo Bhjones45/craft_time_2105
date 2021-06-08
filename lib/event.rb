@@ -1,24 +1,12 @@
 class Event
   attr_reader :name,
-              :craft,
-              :person,
-              :crafts,
-              :attendees
+  :crafts,
+  :attendees
 
-  def initialize(name, craft, person)
+  def initialize(name, crafts, attendees)
     @name = name
-    @craft = craft
-    @person = person
-    @crafts = []
-    @attendees = []
-  end
-
-  def add_craft(craft)
-    @crafts << craft
-  end
-
-  def add_attendee(attendee)
-    @attendees << attendee
+    @crafts = crafts
+    @attendees = attendees
   end
 
   def attendee_names
@@ -30,19 +18,21 @@ class Event
   end
 
   def craft_with_most_supplies
-    craft_hash = Hash.new(0)
-    @crafts.each do |craft|
-      require "pry"; binding.pry
-      craft_hash = craft.name
+    most_supplies = @crafts.max_by do |craft|
+      craft.supplies_required.length
     end
-    craft_hash
+    most_supplies.name
   end
 
-  # def supply_list
-  #   supply_list = []
-  #   @crafts.each do |craft|
-  #     require "pry"; binding.pry
-  #     supply_list << craft
-  #   end
-  # end
-end
+  def supply_list
+    array_hashes = @crafts.map do |craft|
+      craft.supplies_required
+    end
+
+      array_hashes.flat_map do |hash|
+        hash.keys.map do |key|
+          key.to_s
+        end
+      end.uniq
+    end
+  end
