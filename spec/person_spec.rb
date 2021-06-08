@@ -34,10 +34,10 @@ RSpec.describe Person do
 
       expect(person.supplies).to eq({"fabric"=>7, "scissors"=>1})
     end
+
     it 'can build the craft' do
       hector = Person.new({name: 'Hector', interests: ['sewing', 'millinery', 'drawing']})
       sewing = Craft.new('sewing', {fabric: 5, scissors: 1, thread: 1, sewing_needles: 1})
-      event = Event.new("Carla's Craft Connection", [sewing, knitting], [hector, toni])
 
       expect(hector.can_build?(sewing)).to eq(false)
 

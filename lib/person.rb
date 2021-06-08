@@ -15,13 +15,21 @@ class Person
     @supplies[supply] += amount
   end
 
-  def can_build?
+  def can_build?(craft)
     #if hector has {fabric: 5, scissors: 1, thread: 1, sewing_needles: 1}
     #return true
-  # else
+    # else
     #return false
+    can_craft = false
     craft.supplies_required.each do |key, value|
       @supplies.each do |inside_key, inside_value|
-      require "pry"; binding.pry
+        if (key.to_s == inside_key) && (new_value >= value)
+          can_craft = true
+        else
+          can_craft false
+        end
+      end
+    end
+    can_craft
   end
 end
