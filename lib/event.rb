@@ -36,7 +36,7 @@ class Event
     end.uniq
   end
 
-  def attendes_by_craft_interest
+  def attendees_by_craft_interest
     #need a hash of keys = craft and values that are arrays of names_array
     c_interests = Hash.new { |hash, key| hash[key] = Array.new}
     @crafts.each do |craft|

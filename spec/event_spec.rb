@@ -68,7 +68,7 @@ RSpec.describe Event do
            "sewing"=>[hector, toni]
           }
 
-        expect(event.attendes_by_craft_interest).to eq(expected)
+        expect(event.attendees_by_craft_interest).to eq(expected)
       end
 
       it 'can create array of crafts that use a given item' do
